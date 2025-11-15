@@ -3,9 +3,6 @@ import * as diaryService from '../services/diaryServices'
 
 const router = express.Router()
 
-router.get('/', (_req, res) => {
-  res.send(diaryService.getEntriesWithoutSensitiveInfo())
-})
 
 router.get('/:id', (req, res) => {
   const diary = diaryService.findById(+req.params.id)
@@ -25,7 +22,7 @@ router.post('/', (req, res) => {
     visibility,
     comment
   }
-  )
+)
   res.json(newDiaryEntry)
 })
 
